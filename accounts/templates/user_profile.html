@@ -1,0 +1,33 @@
+{% extends 'base.html' %}
+
+{% load bootstrap_tags %}
+    
+{% block content %}
+
+<div class="container">
+    <ul>
+        <li>
+    {{ user }}
+        </li>
+        <li>
+    {{ profile.email }}
+        </li>
+        <li>
+    {{ profile.website }}
+        </li>
+        <li>
+    {{ profile.publicinfo }}
+        </li>
+    </ul>
+</div>    
+
+<div class="container">
+	<form method="POST" enctype="multipart/form-data">
+    {% csrf_token %}    
+    {{ form | as_bootstrap }}
+    <button type="submit" class="btn btn-primary">POST</button>
+  </form>
+</div>
+
+{% endblock %}
+
